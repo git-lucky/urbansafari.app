@@ -97,7 +97,7 @@ Using the provided Atlas reference, generate Atlas standing bipedal in a relaxed
 **Prompt:**
 
 ```
-Using the provided Atlas reference, generate Atlas standing bipedal, wearing a simple soft canvas tool belt in sand #EDDFC3 with two small dark forest #1F3A2B pockets slung across his chest. His trunk is raised and wrapped firmly around a comically oversized round-headed wrench painted moss #6B7A35. The wrench is turning an oversized hex bolt that floats in the air to his right, as if he's assembling something invisible. One ear is forward, the other slightly back. A single tiny outlined sweat drop sits on his temple. Expression: focused, slightly amused, mouth in a small determined smile with a hint of pink tongue. Big sparkly eyes. Smooth unpatterned body in the canonical teal→lavender blend.
+Using the provided Atlas reference, generate Atlas standing bipedal, wearing a simple soft canvas tool belt in sand #EDDFC3 with two small dark forest #1F3A2B pockets slung across his chest. One stubby front arm is raised and gripping a comically oversized round-headed wrench in gold #EAB72D with a forest #1F3A2B outline — held out to the side as if tightening an invisible bolt mid-air. His trunk hangs in a relaxed natural curve in front of his belly, not holding anything. The other stubby arm rests at his side. One ear is forward, the other slightly back. Expression: focused, slightly amused, mouth in a small determined smile with a hint of pink tongue. Big sparkly eyes. Smooth unpatterned body in the canonical teal→lavender blend. EXCLUDE: no sweat drop, no sweat mark, no effort lines, no stress marks anywhere on the face or body.
 ```
 
 ---
@@ -128,12 +128,12 @@ Using the provided Atlas reference, generate Atlas standing bipedal with both st
 
 ### 6. `atlas-binoculars` · Scout tier card
 
-**Description:** Atlas peeking over a rock with binoculars raised by his trunk. Only head, shoulders, and trunk visible above the rock line.
+**Description:** Atlas standing upright, binoculars raised to his eyes by his trunk, leaning forward slightly as if spotting something exciting in the distance.
 
 **Prompt:**
 
 ```
-Using the provided Atlas reference, generate Atlas crouched behind a simple low rounded boulder so that only his head, the tops of his shoulders, his trunk, and one small stubby front foot gripping the rock are visible above the rock line. The rock is a rounded sand #EDDFC3 shape with a soft forest #1F3A2B outline, occupying the lower third of the canvas. His trunk is raised, curled around a pair of small round binoculars (forest #1F3A2B body, cream #FAF5E9 lenses) pressed to his eyes. Only the top halves of his big dusty-rose-lined ears peek up above the trunk. Expression: curious and alert; one eyebrow slightly raised if visible. Smooth unpatterned body in the canonical teal→lavender blend.
+Using the provided Atlas reference, generate Atlas standing fully upright on his two short hind legs in a confident explorer stance. His trunk is raised and curled firmly around a pair of compact round binoculars (forest #1F3A2B body, two circular cream #FAF5E9 lenses with thin gold #EAB72D rings) and pressing them up to his eyes so the lenses frame his face. His round belly faces the viewer. He leans very slightly forward at the waist with subtle eager energy, as if he just spotted something interesting. One big dusty-rose-lined ear is perked straight up in excitement, the other is angled slightly back. Both stubby front feet are relaxed at his sides. No rock, no props other than the binoculars. Expression: alert, thrilled, focused — eyes wide and sparkly behind the binoculars, eyebrows slightly raised, mouth in a small excited grin with a hint of pink tongue. Smooth unpatterned body in the canonical teal→lavender blend.
 ```
 
 ---
@@ -218,6 +218,30 @@ Using the provided Atlas reference, generate Atlas standing bipedal in a compact
 
 ```
 Using the provided Atlas reference, generate Atlas seated on the ground with his short legs tucked forward, holding a crumpled, partially torn paper map in one stubby front foot. The map is upside-down and covered in visible creases (forest #1F3A2B fold lines on cream #FAF5E9 paper). Atlas's head is turned to look off to the upper-right corner of the canvas, not at the map. One big dusty-rose-lined ear droops downward, the other stands up at a confused angle. Trunk hangs limply in a small curl. Expression: puzzled and lightly embarrassed, mouth in a small flat line with a tiny bit of pink tongue poking out, eyebrows gently raised in confusion, big eyes still sparkly. No background scenery; the ground is implied, not drawn. Smooth unpatterned body in the canonical teal→lavender blend.
+```
+
+---
+
+### 14. `atlas-celebrate` · Outcomes row 3
+
+**Description:** Atlas mid-celebration — both arms thrown up, trunk raised and curled in excitement, big open laugh, confetti raining down.
+
+**Prompt:**
+
+```
+Using the provided Atlas reference, generate Atlas standing bipedal in a full-body celebration pose. Both stubby front arms are thrown upward and outward in a triumphant cheer, slightly asymmetric so it feels natural rather than posed. His trunk curls upward above his head in excitement. His mouth is wide open in a huge joyful laugh with a small pink tongue visible. Eyes are wide and sparkly with strong white catchlights — pure elation. Both ears are perked forward and slightly splayed with excitement. Optional very subtle cheek blush. Around him, six to eight small confetti rectangles fall at varied angles in gold #EAB72D, sunset #F2A93B, and moss #6B7A35 — no other colors. Confetti pieces are flat, outlined, and clear of his face. No jacket, no props in hand — the celebration IS the pose. Smooth unpatterned body in the canonical teal→lavender blend.
+```
+
+---
+
+### 15. `atlas-laughing-together` · Outcomes row 2
+
+**Description:** Two Atlas figures side by side, mid-laugh, leaning slightly toward each other — the moment of genuine connection after a shared adventure.
+
+**Prompt:**
+
+```
+Using the provided Atlas reference, generate TWO identical Atlas figures standing bipedal side by side, close together, both mid-laugh. This pose requires two characters — override the single-character rule for this pose only. Both figures must match the reference exactly in proportions, palette, and style: oversized round heads, smooth teal-to-lavender bodies, dusty-rose inner ears, big sparkly eyes, small tail tuft. Left Atlas leans slightly right, right Atlas leans slightly left — their bodies angling toward each other as if sharing a joke. Both mouths are wide open in a genuine laugh, small pink tongues visible. Eyes are slightly scrunched upward from laughing but still show white catchlights. One ear on each figure angles toward the other as if turning in delight. Trunks curve loosely downward — relaxed, not holding props. A small cluster of three confetti rectangles in gold #EAB72D and sunset #F2A93B floats above them (no other confetti colors). Both figures are the same size. Compose them within the square 1024×1024 canvas with enough breathing room that neither figure is clipped — reduce figure scale so both fit comfortably. Smooth unpatterned bodies in the canonical teal→lavender blend on both. No text, no background, transparent PNG.
 ```
 
 ---

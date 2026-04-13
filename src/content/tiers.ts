@@ -17,19 +17,19 @@ export const tiers: Tier[] = [
     name: 'Scout',
     tagline: 'Self-guided. Flexible. Ready to play.',
     description:
-      'A pre-built expedition your team can run on their own schedule. Perfect when you want the Urban Safari energy without the coordination overhead.',
+      'A custom expedition your team can run on their own schedule. Perfect when you want the Urban Safari energy without the coordination overhead.',
     includes: [
-      'Prebuilt city game. No setup required on your end.',
+      'We build your city game, no setup required on your end',
       'Teams navigate challenges at their own pace',
-      'No facilitator; play any day, any time',
-      'Great for small teams and lean budgets',
+      'No facilitator, play any day, any time',
+      'Great for small teams',
     ],
     mascotPose: 'atlas-binoculars',
   },
   {
     slug: 'remote-expedition',
     name: 'Remote Expedition',
-    tagline: 'Distributed team? We come to you, virtually.',
+    tagline: 'We join your  — virtually.',
     description:
       'The guided version for hybrid and remote teams. We kick off live on video, stay on standby all day, and keep every team in sync no matter where they are.',
     includes: [
@@ -49,7 +49,7 @@ export const tiers: Tier[] = [
     includes: [
       'In-person Safari host running the event',
       'Full event coordination and logistics',
-      'On-city support team throughout the day',
+      'In-city support team throughout the day',
       'Awards ceremony and celebration at the finish',
     ],
     mascotPose: 'atlas-flag',
@@ -61,12 +61,11 @@ export const tiers: Tier[] = [
     name: 'Urban Safari',
     tagline: 'The full expedition. Bespoke. Unforgettable.',
     description:
-      'Everything in Guided Expedition, plus custom challenges built around your company, branded everything, and a highlight reel your team will still be sending each other six months later.',
+      'Guided Expedition, plus custom challenges built around your company, and a highlight reel your team will still be sending each other months later.',
     includes: [
-      'Everything in Guided Expedition',
+      'Includes Guided Expedition +',
       'Custom company-specific challenges',
-      'Branded photo/video overlays and swag moments',
-      'Post-event highlight reel delivered to your team',
+      'Post-event highlight reel delivered to your company',
       'Dedicated account lead from booking to wrap',
     ],
     mascotPose: 'atlas-clapper',

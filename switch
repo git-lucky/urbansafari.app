@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ! -f .env.account1 ] || [ ! -f .env.account2 ]; then
+  echo "Error: .env.account1 and .env.account2 files required"
+  exit 1
+fi
+
+echo "Select account:"
+echo "1) Account 1"
+echo "2) Account 2"
+read -r choice
+
+case $choice in
+  1) cp .env.account1 .env && echo "Switched to Account 1";;
+  2) cp .env.account2 .env && echo "Switched to Account 2";;
+  *) echo "Invalid choice";;
+esac

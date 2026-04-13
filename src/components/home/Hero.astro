@@ -19,7 +19,7 @@ import { counts, hasCityCount, hasRating } from '@/content/proof';
 
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow rise rise-1">Team building · built for humans</p>
+      <p class="eyebrow rise rise-1">Engaging Team Building · built for adventure</p>
 
       <h1 class="rise rise-2">
         Your team's<br/>
@@ -27,8 +27,7 @@ import { counts, hasCityCount, hasRating } from '@/content/proof';
       </h1>
 
       <p class="lead rise rise-3">
-        City-wide expeditions that leave teams closer, louder, and
-        actually happy they were invited.
+        City-wide expeditions that leave teams closer, louder, and happy they were invited.
       </p>
 
       <div class="hero-ctas rise rise-4">
@@ -48,7 +47,7 @@ import { counts, hasCityCount, hasRating } from '@/content/proof';
 
     <div class="hero-art">
       <div class="mascot-stage">
-        <Mascot pose="atlas-cartographer" size="xl" tilt={-4} drift />
+        <Mascot pose="atlas-cartographer-outfit" size="xl" tilt={-4} drift />
         {hasCityCount && (
           <div class="sticker sticker-2" aria-hidden="true">
             📍 teams in {counts.citiesPlayed} cities
@@ -106,6 +105,8 @@ import { counts, hasCityCount, hasRating } from '@/content/proof';
     align-items: center;
   }
 
+  .eyebrow { color: var(--gold); }
+
   h1 {
     font-size: clamp(2.8rem, 2rem + 5vw, 6rem);
     line-height: 0.95;
@@ -140,8 +141,8 @@ import { counts, hasCityCount, hasRating } from '@/content/proof';
   .hero-bona {
     margin-top: 2.5rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
     font-size: 0.92rem;
     color: var(--forest-soft);
   }

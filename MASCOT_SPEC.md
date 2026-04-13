@@ -26,6 +26,37 @@ Avoid: four-legged stances, small bead eyes, mandala/geometric body patterns, ha
 
 ---
 
+## Outfit system
+
+Atlas has a **tan safari jacket** as a signature piece — not a uniform worn on every pose, but a signal that he's in full Safari mode. Think of it the way PostHog uses accessories on their hedgehog: a recognizable identity layer that appears when it fits the moment.
+
+The jacket is a short, slightly oversized field/safari jacket in sand `#EDDFC3` with a forest `#1F3A2B` outline and small flap chest pockets. Collar open, sleeves rolled to the elbow. Cell-shaded to match the body treatment.
+
+**Wear the jacket:**
+
+| Pose | Reason |
+|------|--------|
+| `atlas-cartographer` / `atlas-cartographer-outfit` | Hero anchor — this is the definitive dressed Atlas |
+| `atlas-flag` | Guide/leader role fits the jacket |
+| `atlas-clapper` | Director energy — jacket + beret works |
+| `atlas-binoculars` | Explorer mode |
+| `atlas-lost` | Jacket disheveled for humor — optional |
+
+**No jacket:**
+
+| Pose | Reason |
+|------|--------|
+| `atlas-running` | Movement reads cleaner without it |
+| `atlas-trophy` | Celebratory — prop is the whole costume |
+| `atlas-waving` | Footer/nav tiny size — detail disappears |
+| `atlas-headset` | The headset IS the costume |
+| `atlas-phone` | Casual, warm, everyday |
+| `atlas-booking` | Functional — prop tells the story |
+| `atlas-wrench` | Tool belt is the costume |
+| `atlas-laughing-together` | Spontaneous warmth — no outfit needed |
+
+---
+
 ## Pose catalogue
 
 Every pose used on the site must appear here. If a new location needs a pose, add it to both this spec and to the site.
@@ -67,8 +98,8 @@ Every pose used on the site must appear here. If a new location needs a pose, ad
 
 ### `atlas-binoculars`
 - **Where:** Tiers → **Scout** card (size `md`); also small appearance allowed in Outcomes if needed later.
-- **Description:** Atlas crouched slightly behind a boulder or low rock, holding binoculars up to his eyes with his trunk. Only head and shoulders visible above the rock. One ear up.
-- **Prop:** binoculars + rock foreground.
+- **Description:** Atlas standing fully upright, binoculars raised to his eyes with his trunk, leaning slightly forward in explorer mode. One ear up, full body visible.
+- **Prop:** binoculars only — no rock.
 - **Vibe:** "Let's see what's out there." Self-directed explorer.
 - **Aspect:** 1:1.
 
@@ -99,6 +130,22 @@ Every pose used on the site must appear here. If a new location needs a pose, ad
 - **Prop:** blank Polaroid frame.
 - **Vibe:** "Look at this moment." Nostalgic, communal.
 - **Aspect:** 1:1 with photo frame slightly offset.
+
+### `atlas-celebrate`
+- **Where:** Outcomes row 3 (size `lg`)
+- **Description:** Atlas mid-celebration — arms raised, trunk curled up, big grin, confetti falling. The "you nailed it" moment.
+- **Prop:** confetti in brand palette.
+- **Vibe:** "You look like a genius right now." Pure win energy.
+- **Aspect:** 1:1.
+- **Outfit:** No jacket — celebratory, spontaneous.
+
+### `atlas-laughing-together`
+- **Where:** Outcomes row 2 (size `lg`)
+- **Description:** Two Atlas figures standing bipedal side by side, both mid-laugh, leaning slightly toward each other. A small cluster of confetti floats above. No props.
+- **Prop:** small confetti burst in gold and sunset only.
+- **Vibe:** "This is the connection you actually came for." Genuine, warm, the payoff moment.
+- **Aspect:** 1:1 — both figures scaled down to fit comfortably within the square canvas.
+- **Note:** This is the only pose with two characters. Both must match the canonical Atlas design exactly.
 
 ### `atlas-phone`
 - **Where:** Contact band (size `xl`); Support hero (size `lg`).

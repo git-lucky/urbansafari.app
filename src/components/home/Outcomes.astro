@@ -3,6 +3,16 @@ import Mascot from '@/components/Mascot.astro';
 
 const outcomes = [
   {
+    headline: 'Coworkers who laugh together afterward.',
+    body: 'Nothing bonds a team faster than laughing together on a city sidewalk, solving something weird and wonderful. People come back from a Safari with inside jokes, not small talk.',
+    pose: 'atlas-laughing-together',
+    proof: [
+      'Mixed-role teams by design',
+      'Photo & video missions to revisit later',
+      'A highlight reel that keeps the feeling alive',
+    ],
+  },
+  {
     headline: 'The 200-person offsite that doesn\'t fall apart.',
     body: 'Our platform and crew are built for city-wide hunts where dozens of teams play in parallel. You get one point of contact; everyone else gets a day that feels effortless.',
     pose: 'atlas-flag',
@@ -13,19 +23,9 @@ const outcomes = [
     ],
   },
   {
-    headline: 'Coworkers who actually know each other afterward.',
-    body: 'Nothing bonds a team faster than laughing together on a city sidewalk, solving something weird and wonderful. People come back from a Safari with inside jokes, not small talk.',
-    pose: 'atlas-polaroid',
-    proof: [
-      'Mixed-role teams by design',
-      'Photo & video missions to revisit later',
-      'A highlight reel that keeps the feeling alive',
-    ],
-  },
-  {
     headline: 'You, looking like the person who gets it.',
     body: 'The best part of booking Urban Safari is that you don\'t have to lift a finger the day-of. Your team thinks you\'re a genius. We\'ll let them keep thinking that.',
-    pose: 'atlas-clapper',
+    pose: 'atlas-trophy',
     proof: [
       'White-glove planning from first call to wrap',
       'A dedicated lead who remembers your team',
@@ -38,7 +38,7 @@ const outcomes = [
 <section id="outcomes" class="section outcomes">
   <div class="wrap">
     <header class="outcomes-head">
-      <p class="eyebrow">What you actually get</p>
+      <p class="eyebrow">What you get</p>
       <h2>Three outcomes we stake our name on.</h2>
     </header>
 
@@ -49,7 +49,6 @@ const outcomes = [
             <Mascot pose={o.pose} size="lg" tilt={i % 2 === 0 ? -4 : 4} />
           </div>
           <div class="outcome-body">
-            <span class="outcome-num">0{i + 1}</span>
             <h3>{o.headline}</h3>
             <p>{o.body}</p>
             <ul>
@@ -134,6 +133,13 @@ const outcomes = [
       gap: 1.5rem;
     }
     .outcome:nth-child(even) .outcome-side { order: 0; }
-    .outcome-side { max-width: 240px; aspect-ratio: 1/1; }
+    .outcome-side {
+      max-width: 200px;
+      margin-inline: auto;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
   }
 </style>

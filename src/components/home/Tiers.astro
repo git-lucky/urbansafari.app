@@ -57,7 +57,7 @@ import { tiers } from '@/content/tiers';
     max-width: 52ch;
     margin-bottom: clamp(3rem, 6vw, 4.5rem);
   }
-  .tiers-head .eyebrow { margin-bottom: 0.85rem; display: block; }
+  .tiers-head .eyebrow { margin-bottom: 0.85rem; display: block; color: var(--gold); }
   .tiers-head h2 { margin-bottom: 1rem; }
 
   .tier-grid {
@@ -69,7 +69,10 @@ import { tiers } from '@/content/tiers';
 
   .tier {
     position: relative;
-    background: var(--paper);
+    --ink: #1B6B45;
+    --stamp-border: 3.5px solid #1B6B45;
+    --stamp-shadow: 7px 7px 0 0 #1B6B45;
+    background: linear-gradient(to bottom, #FDF1D8 0%, var(--paper) 100%);
     border: var(--stamp-border);
     border-radius: var(--radius-lg);
     padding: 1.75rem 1.5rem;
@@ -84,14 +87,39 @@ import { tiers } from '@/content/tiers';
     box-shadow: 9px 10px 0 0 var(--ink);
   }
 
-  .tier-popular { box-shadow: var(--stamp-shadow-coral); }
-  .tier-popular:hover { box-shadow: 9px 10px 0 0 var(--coral); }
+  .tier-popular { border-color: var(--gold); box-shadow: 5px 5px 0 0 var(--gold); }
+  .tier-popular:hover { box-shadow: 9px 10px 0 0 var(--gold); }
+  .badge-popular { border-color: var(--gold); }
 
   .tier-premium {
-    background: linear-gradient(165deg, var(--paper) 0%, #FDF1D8 100%);
+    background:
+      linear-gradient(to bottom, #FDF1D8 0%, var(--paper) 100%) padding-box,
+      linear-gradient(135deg, var(--gold) 0%, var(--sunset) 50%, var(--gold) 100%) border-box;
+    border-color: transparent;
     box-shadow: var(--stamp-shadow-sunset);
+    transform: translateY(-6px) rotate(var(--r, 0));
   }
-  .tier-premium:hover { box-shadow: 9px 10px 0 0 var(--sunset); }
+
+  .tier-premium h3 {
+    font-size: calc(var(--step-3) * 2.5 + 4pt);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #0F2419;
+  }
+  .tier-premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .tier-premium:hover {
+    box-shadow: 9px 10px 0 0 var(--sunset);
+    transform: translate(-3px, -12px) rotate(0deg);
+  }
 
   .tier-badge {
     position: absolute;
@@ -108,10 +136,16 @@ import { tiers } from '@/content/tiers';
     background: var(--ink);
     color: var(--paper);
   }
-  .badge-popular { background: var(--gold); color: var(--ink); }
+  .badge-popular { background: var(--gold); color: #000; border-color: #000; }
   .badge-premium {
     background: linear-gradient(90deg, var(--sunset), var(--gold));
-    color: var(--ink);
+    color: #000;
+    border-color: #000;
+  }
+
+  .tier-premium .tier-mascot {
+    transform: scale(1.1) translateY(8px);
+    transform-origin: center bottom;
   }
 
   .tier-mascot {
@@ -143,7 +177,7 @@ import { tiers } from '@/content/tiers';
     gap: 0.6rem;
     margin-bottom: 1.5rem;
     font-size: 0.92rem;
-    color: var(--ink);
+    color: #0F2419;
   }
   .tier-list li {
     display: flex;
@@ -159,7 +193,7 @@ import { tiers } from '@/content/tiers';
     height: 20px;
     margin-top: 2px;
     border-radius: 50%;
-    background: var(--forest);
+    background: var(--ink);
     color: var(--cream);
     font-size: 0.7rem;
     font-weight: 700;
@@ -174,6 +208,15 @@ import { tiers } from '@/content/tiers';
     align-self: flex-start;
     padding: 0.7rem 1.2rem;
     font-size: 0.95rem;
+  }
+  .tier-popular .tier-cta,
+  .tier-premium .tier-cta {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .tier-popular .tier-cta:hover,
+  .tier-premium .tier-cta:hover {
+    box-shadow: 3px 3px 0 0 var(--gold);
   }
 
   .tiers-footnote {
