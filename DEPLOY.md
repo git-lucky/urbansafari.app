@@ -1,47 +1,69 @@
 # Deploying Urban Safari to Cloudflare Pages
 
-## Prerequisites
-- Access to the `urbansafari.app` GitHub repo
-- A Cloudflare account with Pages access
-- Access to the DNS records for `urbansafari.app`
+Production lives at **https://urbansafari.app**, served from the Cloudflare Pages project `urbansafari-site`. Deploys run automatically via GitHub Actions on every push to `main`.
 
----
+## How a deploy happens
 
-## Step 1 — Connect the repo
+1. Push to `main` on `git-lucky/urbansafari-site`.
+2. `.github/workflows/deploy.yml` runs:
+   - `pnpm install --frozen-lockfile`
+   - `pnpm build` (Astro → `dist/`)
+   - `cloudflare/wrangler-action@v3` → `wrangler pages deploy dist --project-name=urbansafari-site`
+3. Cloudflare rolls `dist/` out to the edge. `urbansafari.app` updates within ~30s of the workflow turning green.
 
-1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**.
-2. Authorize Cloudflare to read the repo and pick `urbansafari.app`.
-3. Choose the `main` branch for production.
+Watch runs: **https://github.com/git-lucky/urbansafari-site/actions**
 
-## Step 2 — Build settings
+## Why not Cloudflare's Git integration?
 
-| Field             | Value                |
-|-------------------|----------------------|
-| Framework preset  | Astro                |
-| Build command     | `pnpm build`         |
-| Build output dir  | `dist`               |
-| Root directory    | `/` (project root)   |
-| Node version      | `20` or newer        |
+The Pages project was originally created as a **direct-upload** project, and Cloudflare does not allow direct-upload projects to be retroactively connected to Git. Recreating the project to enable Git integration would force re-attaching the three custom domains (brief DNS churn). Running Wrangler from GitHub Actions is the equivalent pattern and keeps the existing project intact.
 
-Cloudflare auto-detects the framework preset — verify the above values match before the first build.
+## Required secrets
 
-## Step 3 — First deploy
+Stored at `https://github.com/git-lucky/urbansafari-site/settings/secrets/actions`:
 
-Click **Save and Deploy**. The first build provisions a `*.pages.dev` URL you can sanity-check.
+| Secret | Purpose |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with **Account → Cloudflare Pages → Edit** scope. Prefer an account-owned token (survives staff changes) over a user token. |
+| `CLOUDFLARE_ACCOUNT_ID` | `22c1e6fec596e2cd6decb53230fbc518` — identifies which Cloudflare account to deploy into. |
 
-## Step 4 — Custom domain
+Rotate the API token at `https://dash.cloudflare.com/profile/api-tokens` (user-owned) or the account API Tokens page (account-owned). Update the GitHub secret with the new value; no other code changes required.
 
-1. In the Pages project settings, add `urbansafari.app` and `www.urbansafari.app`.
-2. Cloudflare will auto-create the DNS records if the zone is already on Cloudflare; otherwise it will show the CNAME target to set at your registrar.
-3. Redirect `www` → apex via a Page Rule or the Bulk Redirects UI.
+## Manual re-deploy
 
-## Step 5 — Verify
+Without pushing code:
 
-- [ ] `https://urbansafari.app` loads with a valid TLS cert.
-- [ ] `/privacy` and `/support` both render.
-- [ ] `/not-a-real-page` returns the custom 404.
-- [ ] `curl -sI https://urbansafari.app | grep -i server` reports `cloudflare`.
+- **From GitHub UI** — Actions tab → *Deploy to Cloudflare Pages* → *Run workflow* → branch `main` → *Run workflow*.
+- **From local, bypassing CI** (emergency only):
+  ```bash
+  pnpm build
+  CLOUDFLARE_API_TOKEN=... pnpm dlx wrangler pages deploy dist --project-name urbansafari-site --branch main
+  ```
 
-## Future deploys
+## Local sanity check before pushing
 
-Every push to `main` triggers a production deploy. Pull requests get preview URLs automatically.
+```bash
+pnpm install
+pnpm build       # must succeed; identical command CI runs
+pnpm preview     # serves ./dist locally on :4321 or similar
+```
+
+If `pnpm build` fails locally, CI will fail the same way.
+
+## Custom domain
+
+`urbansafari.app` (apex + `www`) is already attached to the Pages project. To change or add a domain: Cloudflare dashboard → `urbansafari-site` → **Custom domains** → *Set up a custom domain*. Cloudflare auto-creates DNS records when the zone is on Cloudflare.
+
+## Troubleshooting
+
+- **Workflow red, `pnpm install` failed with frozen-lockfile error** — lockfile drift. Run `pnpm install` locally, commit the updated `pnpm-lock.yaml`, push.
+- **Workflow red, wrangler step says `Authentication error`** — API token is missing, revoked, or lacks *Cloudflare Pages Edit*. Check the secret, rotate the token if needed.
+- **Workflow green, site still shows old content** — Cloudflare edge cache. Hard-refresh the browser. If it persists, purge the cache: Cloudflare dashboard → *Caching* → *Configuration* → *Purge Everything*.
+- **GitHub Actions shows a `pages-build-deployment` run alongside ours** — GitHub Pages auto-builder is enabled on the repo (legacy). Disable via `gh api -X DELETE /repos/git-lucky/urbansafari-site/pages` or repo Settings → Pages → Source: None.
+
+## Verify a deploy
+
+```bash
+curl -sI https://urbansafari.app | grep -iE 'HTTP|server'          # 200, server: cloudflare
+curl -s  https://urbansafari.app | grep -o '<meta name="generator"[^>]*>'  # confirms Astro version
+curl -sI https://urbansafari.app/mascot/atlas-cartographer.png | head -2   # 200 + content-type: image/png
+```
