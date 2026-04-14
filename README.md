@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Urban Safari — Marketing Site
 
-## Getting Started
+Static marketing site for Urban Safari, built with [Astro](https://astro.build) and deployed to Cloudflare Pages.
 
-First, run the development server:
+## Stack
+
+- **Framework:** Astro 5 (static output, no SSR)
+- **Styling:** Vanilla CSS with design tokens in `src/styles/global.css`
+- **Fonts:** Cabinet Grotesk + Satoshi (via Fontshare CDN), JetBrains Mono
+- **Hosting:** Cloudflare Pages
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build        # builds to ./dist
+pnpm preview      # serves the built site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project layout
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  layouts/Base.astro        # HTML shell, SEO meta, nav + footer
+  components/               # Nav, Footer, Mascot, home sections
+    home/                   # Homepage sections composed in index.astro
+  content/                  # Structured content (tiers, FAQ)
+  pages/                    # Routes: /, /privacy, /support, /404
+  styles/global.css         # Design tokens + resets + utilities
+public/                     # Static assets (team photos, mascot placeholders)
+MASCOT_SPEC.md              # Atlas the elephant — pose catalog + style guide
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system quick reference
 
-## Learn More
+- Palette: cream, sand, forest, coral, sunset (see `:root` in `global.css`).
+- Headings: Cabinet Grotesk (`--font-display`), chunky and warm.
+- Body: Satoshi (`--font-body`).
+- Mono: JetBrains Mono for eyebrows, numerals, small labels.
+- Reusable classes: `.wrap`, `.section`, `.eyebrow`, `.lead`, `.btn` / `.btn-coral` / `.btn-forest` / `.btn-ghost`, `.band-sand` / `.band-cream-deep` / `.band-forest` / `.band-coral`, `.rise` + `.rise-1…5` for staggered load-in, `.grain` for the noise overlay.
 
-To learn more about Next.js, take a look at the following resources:
+## Atlas the mascot
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Every `<Mascot pose="..." />` usage is a placeholder until real art is dropped into `public/mascot/`. Pose slugs, their usage locations, and the illustrator style guide live in `MASCOT_SPEC.md`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Audit all current poses in use:
 
-## Deploy on Vercel
+```bash
+grep -rEoh 'pose="[a-z0-9-]+"' src | sort -u
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploying to Cloudflare Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `DEPLOY.md`.
