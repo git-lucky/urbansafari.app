@@ -15,25 +15,19 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run build
+      - run: npm ci
+      - run: npm run build
 
       - uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLAREAPI }}
-          accountId: ${{ secrets.CLOUDFLAREID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=urbansafari-site
