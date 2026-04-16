@@ -39,7 +39,7 @@ import Poster from '@/layouts/Poster.astro';
     </div>
 
     <!-- Demo URL -->
-    <p class="demo-url">hunt.urbansafari.app/join/demo123</p>
+    <p class="demo-url"><a href="https://hunt.urbansafari.app/join/demo123" class="demo-url-link">hunt.urbansafari.app/join/demo123</a></p>
 
     <!-- Footer note -->
     <p class="poster-footer">No app download required · Works on any device</p>
@@ -101,13 +101,13 @@ import Poster from '@/layouts/Poster.astro';
     font-family: var(--font-display);
     font-weight: 800;
     font-size: var(--step-2);
-    color: var(--forest);
+    color: #1B6B45;
     letter-spacing: -0.02em;
     line-height: 1;
   }
 
   .brand-gold {
-    color: var(--gold);
+    color: #1B6B45;
     font-weight: 800;
   }
 
@@ -115,7 +115,7 @@ import Poster from '@/layouts/Poster.astro';
   .eyebrow {
     margin-block: 0;
     font-size: 1rem;
-    color: var(--forest);
+    color: #1B6B45;
   }
 
   /* ── headline ── */
@@ -123,7 +123,7 @@ import Poster from '@/layouts/Poster.astro';
     font-family: var(--font-display);
     font-weight: 800;
     font-size: var(--step-4);
-    color: var(--forest);
+    color: #1B6B45;
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin-block: 0;
@@ -167,11 +167,16 @@ import Poster from '@/layouts/Poster.astro';
   }
 
   /* ── demo URL ── */
+  .demo-url-link {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   .demo-url {
     font-family: var(--font-mono);
     font-size: var(--step-1);
     font-weight: 700;
-    color: var(--forest);
+    color: #1B6B45;
     letter-spacing: 0.02em;
     margin-block: 0;
     text-decoration: underline;
@@ -197,7 +202,7 @@ import Poster from '@/layouts/Poster.astro';
   }
 
   .footer-url {
-    color: var(--forest);
+    color: #1B6B45;
     font-weight: 700;
     text-decoration: underline;
     text-decoration-color: var(--gold);
