@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <div class="brand-row">
-        <img src="/logo/atlas-coin-back.png" alt="" width="211" height="211" style="margin-top: -50px;" />
+        <img src="/logo/atlas-coin-back.png" alt="" width="211" height="211" class="footer-coin" />
         <div>
           <p class="footer-wordmark">Urban&nbsp;Safari</p>
           <p class="footer-tag">
@@ -122,8 +122,11 @@ const year = new Date().getFullYear();
     font-family: var(--font-display);
   }
 
+  .footer-coin { margin-top: -20px; }
+
   @media (max-width: 760px) {
     .footer-grid { grid-template-columns: 1fr; }
     .footer-nav { grid-template-columns: repeat(2, 1fr); }
+    .footer-coin { margin-top: -20px; }
   }
 </style>
