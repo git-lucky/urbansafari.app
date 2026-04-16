@@ -8,10 +8,9 @@ import Poster from '@/layouts/Poster.astro';
     <!-- Accent blob -->
     <div class="blob" aria-hidden="true"></div>
 
-    <!-- Brand mark: mascot + wordmark -->
+    <!-- Brand mark: mascot -->
     <div class="brand rise rise-1">
-      <img src="/mascot/atlas-wave.png" alt="" width="64" height="64" class="brand-mascot" aria-hidden="true" />
-      <span class="brand-word brand-gold">Urban&nbsp;Safari</span>
+      <img src="/mascot/atlas-binoculars.png" alt="" width="115" height="115" class="brand-mascot" aria-hidden="true" />
     </div>
 
     <!-- Eyebrow -->
@@ -92,15 +91,15 @@ import Poster from '@/layouts/Poster.astro';
   }
 
   .brand-mascot {
-    width: 52px;
-    height: 52px;
+    width: 115px;
+    height: 115px;
     object-fit: contain;
   }
 
   .brand-word {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: var(--step-2);
+    font-size: calc(var(--step-2) * 1.5);
     color: #1B6B45;
     letter-spacing: -0.02em;
     line-height: 1;
