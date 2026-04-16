@@ -102,7 +102,7 @@ p  { max-width: 62ch; }
 
 .lead {
   font-size: var(--step-2);
-  color: var(--forest-soft);
+  color: var(--ink);
   max-width: 42ch;
   line-height: 1.4;
 }
